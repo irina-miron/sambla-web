@@ -6,7 +6,7 @@ def loan_application_form():
 
     total_loan = st.number_input("How much do you want to loan?", step=0.01, value=0.0)
     new_loan = st.number_input("How much of this is new loan on top of what you already have?", step=0.01, value=0.0)
-    monthly_income = st.number_input("What is your monthly income before tax?", step=0.01, value=0.0)
+    monthly_income = st.slider("What is your monthly income before tax?", min_value=0, max_value=1231212)
 
     application_type = st.selectbox("What type of loan is this?",
                                     options=["No Refinance", "Partial Refinance", "Full Refinance"])
