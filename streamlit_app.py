@@ -30,7 +30,7 @@ def loan_application_form():
                                             "Temporary", "Other", "Unemployed", "Part-time", "On Leave Income",
                                             "State Income", "Paid by Hour"])
 
-    options = list(range(1, 10)) + ['10+']
+    options = list(range(0, 10)) + ['10+']
 
     params['No__payment_complaints'] = st.selectbox("How many payment complaints do you have?",
                                       options=options)
@@ -65,10 +65,10 @@ def loan_application_form():
         X['Living_arrangement_mode'] = X['Living_arrangement_mode'].apply(lambda x: 'owned' if x in ['Villa', 'Condominium'] else 'rented')
 
 
-        with open('pipeline_no_model', 'rb') as pipe_file:
+        with open('pipeline_no_model.pkl', 'rb') as pipe_file:
             pipe = pickle.load(pipe_file)
 
-        with open('model_binary_2', 'rb') as model_file:
+        with open('model_binary_2.pkl', 'rb') as model_file:
             model = pickle.load(model_file)
         X = pipe.transform(X)
 
