@@ -66,11 +66,13 @@ def loan_application_form():
         X['No__dependants_mode'].where(X['No__dependants_mode'] == '10+', 10, inplace=True)
         X['Living_arrangement_mode'] = X['Living_arrangement_mode'].apply(lambda x: 'owned' if x in ['Villa', 'Condominium'] else 'rented')
 
-        pipe = make_pipe()
-        X = pipe.transform(X)
 
-        with open('make_pipe', 'rb') as f:
-            model = pickle.load(f)
+        with open('pipeline_no_model', 'rb') as pipe_file:
+            pipe = pickle.load(pipe_file)
+
+        with open('model_binary_2', 'rb') as model_file:
+            model = pickle.load(model_file)
+        X = pipe.transform(X)
 
         pred = model.predict(X)
         if pred == 1:
