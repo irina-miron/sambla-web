@@ -2,8 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import RobustScaler, OneHotEncoder, FunctionTransformer
-import pandas as pd
-import numpy as np
+from log_transform import log_transform
 
 def make_pipe(general_scaler=RobustScaler()):
     """
@@ -16,9 +15,7 @@ def make_pipe(general_scaler=RobustScaler()):
 
     Transform unknow to Other and do the OHE
     """
-    def log_transform(x):
-        x = np.abs(x)
-        return np.log(x + 1)
+
 
     transformer = FunctionTransformer(log_transform,
                                       feature_names_out='one-to-one')
