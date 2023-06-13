@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-from make_pipe import make_pipe
-
 
 def loan_application_form():
     st.title('Loan Application Form')
