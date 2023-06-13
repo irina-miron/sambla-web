@@ -7,8 +7,8 @@ def loan_application_form():
     st.title('Loan Application Form')
     params = {}
 
-    params['total_loan'] = st.slider("What is the value of the loans you already have?", min_value=-0, max_value=144796589)
-    params['new_loan'] = st.slider("How much do you want to loan?", min_value=0, max_value=107234823)
+    params['total_loan'] = st.number_input("What is the value of the loans you already have?", value=0)
+    params['new_loan'] = st.number_input("How much do you want to loan?", value=0)
     params['Monthly_income_before_tax'] = st.number_input("What is your monthly income before tax?", value=0)
 
     params['application_type'] = st.selectbox("What type of loan is this?",
