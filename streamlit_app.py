@@ -78,9 +78,9 @@ def loan_application_form():
         X = pipe.transform(X)
 
         if X['Monthly_income_before_tax'] == 3499479:
-                pred_binary = 0
+            pred_binary = 0
         else:
-        pred_binary = model_binary.predict(X)
+            pred_binary = model_binary.predict(X)
 
         if pred_binary[0] == 1:
                 st.write("Your loan application is rejected!")
