@@ -9,7 +9,7 @@ def loan_application_form():
 
     params['total_loan'] = st.slider("What is the value of the loans you already have?", min_value=-0, max_value=144796589)
     params['new_loan'] = st.slider("How much do you want to loan?", min_value=0, max_value=107234823)
-    params['Monthly_income_before_tax'] = st.slider("What is your monthly income before tax?", min_value=0, max_value=1088741318943133600)
+    params['Monthly_income_before_tax'] = st.number_input("What is your monthly income before tax?", value=0)
 
     params['application_type'] = st.selectbox("What type of loan is this?",
                                     options=["No Refinance", "Partial Refinance", "Full Refinance"])
