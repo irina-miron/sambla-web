@@ -7,25 +7,63 @@ def loan_application_form():
     st.title('Loan Application Form')
     params = {}
 
-    params['total_loan'] = st.number_input("What is the value of the loans you already have?", value=0)
-    params['new_loan'] = st.number_input("How much do you want to loan?", value=0)
-    params['Monthly_income_before_tax'] = st.number_input("What is your monthly income before tax?", value=0)
+    st.subheader("Personal Info")
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col1:
+        params['age'] = st.number_input("How old are you?", value=0)
+    with col2:
+        params['Civil_status'] = st.selectbox("Are you married?", options=["Yes", "No"])
+    with col3:
+        params['Living_arrangement_mode'] = st.selectbox("What is your current living arrangement?",
+                                      options=["Rented apartment", "Condominium", "Parents", "Lodge", "Employee housing", "Villa", "Other" ])
+    st.divider()
 
-    params['application_type'] = st.selectbox("What type of loan is this?",
-                                    options=["No Refinance", "Partial Refinance", "Full Refinance"])
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col1:
 
+        params['total_loan'] = st.number_input("What is the value of the loans you already have?", value=0)
+    with col2:
+        params['new_loan'] = st.number_input("How much do you want to loan?", value=0)
+    with col3:
+        params['Monthly_income_before_tax'] = st.number_input("What is your monthly income before tax?", value=0)
+
+    st.divider()
+    ####
+    # 3 columns container for the buttons of application type
+    st.subheader("What type of loan is this?")
+    col1, col2, col3, col5 = st.columns([1, 1.2, 1, 1.8])
+
+    with col1:
+        if st.button('No Refinance'):
+            # print is visible in the server output, not in the page
+            params['application_type'] = "No Refinance"
+
+    with col2:
+        if st.button('Partial Refinance'):
+            params['application_type'] = "Partial Refinance"
+    with col3:
+        if st.button('Full Refinance'):
+            params['application_type'] = "Full Refinance"
+
+    with col5:
+        #st.write(' ')
+        params['is_first_application'] = st.checkbox("Is this your first application?")
+        params['is_last_application'] = 1
+    # params['application_type'] = st.selectbox("What type of loan is this?",
+    #                                 options=["No Refinance", "Partial Refinance", "Full Refinance"])
     params['purpose_text'] = st.selectbox("What are you using the loan for?",
                                 options=["Investment", "Other", "Refinance", "Studies", "Vehicle",
                                          "Renovation", "House", "Consume", "Health", "Vacation", "Services"])
 
-    params['is_first_application'] = st.checkbox("Is this your first application?")
-    params['is_last_application'] = 1
+
+
+
 
     appl_total = st.number_input("If not, how many applications have you made before?", value=0)
 
-    params['age'] = st.number_input("How old are you?", value=0)
 
-    params['Civil_status'] = st.selectbox("Are you married?", options=["Yes", "No"])
+
+
 
     params['Employment_type'] = st.selectbox("What employment type do you have?",
                                    options=["Permanent", "Self-employed", "Student/Trainee", "Pension/Retired",
@@ -45,8 +83,7 @@ def loan_application_form():
 
     params['desired_repayment_time_mode'] = desired_repayment_years * 12
 
-    params['Living_arrangement_mode'] = st.selectbox("What is your current living arrangement?",
-                                      options=["Rented apartment", "Condominium", "Parents", "Lodge", "Employee housing", "Villa", "Other" ])
+
     params['No__dependants_mode'] = st.selectbox("How many children under 18 do you have?",
                                   options=options)
 
