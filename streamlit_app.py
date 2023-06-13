@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import pickle
 
 def loan_application_form():
     st.title('Loan Application Form')
