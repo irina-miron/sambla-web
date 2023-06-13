@@ -6,7 +6,7 @@ def loan_application_form():
     st.title('Loan Application Form')
     params = {}
 
-    params['total_loan'] = st.slider("What is the value of the loans you already have?", min_value=-5.105648028648286, max_value=2.817191797042532) + params['new_loan']
+    params['total_loan'] = st.slider("What is the value of the loans you already have?", min_value=-5.105648028648286, max_value=2.817191797042532) #+ params['new_loan']
     params['new_loan'] = st.slider("How much do you want to loan?", min_value=0, max_value=300000000)
     params['Monthly_income_before_tax'] = st.slider("What is your monthly income before tax?", min_value=0, max_value=1231212)
 
