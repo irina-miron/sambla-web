@@ -80,9 +80,9 @@ def loan_application_form():
         if params['Monthly_income_before_tax'] == 3499479 :
             pred_binary = 1
         else:
-            pred_binary = model_binary.predict(X)
+            pred_binary = model_binary.predict(X)[0]
 
-        if pred_binary[0] == 1:
+        if pred_binary == 1:
             pred_regression = model_regression.predict(X)
             st.write(f"Your loan application is approved for {pred_regression[0]}!")
         else:
