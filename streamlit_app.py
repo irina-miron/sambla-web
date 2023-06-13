@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from make_pipe import make_pipe
 
 
 def loan_application_form():
@@ -42,11 +43,11 @@ def loan_application_form():
     desired_repayment_years = st.selectbox("What is your desired repayment time, in years, for this loan?",
                                            options=list(range(1, 21)))
 
-    params['desired_repayment_months'] = desired_repayment_years * 12
+    params['desired_repayment_time_mode'] = desired_repayment_years * 12
 
-    params['living_arrangement'] = st.selectbox("What is your current living arrangement?",
+    params['living_arrangement_mode'] = st.selectbox("What is your current living arrangement?",
                                       options=["Rented apartment", "Condominium", "Parents", "Lodge", "Employee housing", "Villa", "Other" ])
-    params['num_dependants'] = st.selectbox("How many children under 18 do you have?",
+    params['No__dependants_mode'] = st.selectbox("How many children under 18 do you have?",
                                   options=options)
 
 
@@ -60,6 +61,22 @@ def loan_application_form():
 
         # create a dataframe from the form data
         X = pd.DataFrame(params, index=[0])
+        X['new_loan'] = X['new_loan'] + X['total_loan']
+        X['No__payment_complaints'].where(X['No__payment_complaints'] = '10+', 10, inplace=True)
+        X['No__dependants_mode'].where(X['No__dependants_mode'] = '10+', 10, inplace=True)
+        X['Living_arrangement_mode'] = X['Living_arrangement_mode'].apply(lambda x: 'owned' if x in ['Villa', 'Condominium'] else 'rented')
+
+        pipe = make_pipe()
+        X = pipe.transform(X)
+
+        with open('make_pipe', 'rb') as f:
+            model = pickle.load(f)
+
+        pred = model.predict(X)
+        if pred == 1:
+            st.write("Your loan application is approved!")
+        else:
+            st.write("Your loan application is rejected!")
         # make a prediction
         #y_pred = model.predict(X)
 
@@ -68,6 +85,6 @@ def loan_application_form():
         # Process the form data and perform further actions (e.g., model prediction)
         # You can access the entered values using the variables above
         # For example, `total_loan`, `new_loan`, `monthly_income`, etc.
-        pass
+
 
 loan_application_form()
