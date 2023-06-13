@@ -77,9 +77,14 @@ def loan_application_form():
             model_regression = pickle.load(model_file_2)
         X = pipe.transform(X)
 
+        if X['Monthly_income_before_tax'] == 3499479:
+                pred_binary = 0
+        else:
         pred_binary = model_binary.predict(X)
 
         if pred_binary[0] == 1:
+                st.write("Your loan application is rejected!")
+                return
             pred_regression = model_regression.predict(X)
             st.write(f"Your loan application is approved for {pred_regression[0]}!")
         else:
