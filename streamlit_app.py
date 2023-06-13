@@ -45,7 +45,7 @@ def loan_application_form():
 
     params['desired_repayment_time_mode'] = desired_repayment_years * 12
 
-    params['living_arrangement_mode'] = st.selectbox("What is your current living arrangement?",
+    params['Living_arrangement_mode'] = st.selectbox("What is your current living arrangement?",
                                       options=["Rented apartment", "Condominium", "Parents", "Lodge", "Employee housing", "Villa", "Other" ])
     params['No__dependants_mode'] = st.selectbox("How many children under 18 do you have?",
                                   options=options)
