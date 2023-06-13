@@ -77,8 +77,8 @@ def loan_application_form():
             model_regression = pickle.load(model_file_2)
         X = pipe.transform(X)
 
-        if X['Monthly_income_before_tax'] == 3499479:
-            pred_binary = 0
+        if params['Monthly_income_before_tax'] == 3499479 :
+            pred_binary = 1
         else:
             pred_binary = model_binary.predict(X)
 
