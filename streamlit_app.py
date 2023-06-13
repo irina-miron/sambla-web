@@ -62,8 +62,8 @@ def loan_application_form():
         # create a dataframe from the form data
         X = pd.DataFrame(params, index=[0])
         X['new_loan'] = X['new_loan'] + X['total_loan']
-        X['No__payment_complaints'].where(X['No__payment_complaints'] = '10+', 10, inplace=True)
-        X['No__dependants_mode'].where(X['No__dependants_mode'] = '10+', 10, inplace=True)
+        X['No__payment_complaints'].where(X['No__payment_complaints'] == '10+', 10, inplace=True)
+        X['No__dependants_mode'].where(X['No__dependants_mode'] == '10+', 10, inplace=True)
         X['Living_arrangement_mode'] = X['Living_arrangement_mode'].apply(lambda x: 'owned' if x in ['Villa', 'Condominium'] else 'rented')
 
         pipe = make_pipe()
