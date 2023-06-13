@@ -6,9 +6,9 @@ def loan_application_form():
     st.title('Loan Application Form')
     params = {}
 
-    params['total_loan'] = st.number_input("How much do you want to loan?", step=0.01, value=0.0)
-    params['new_loan'] = st.number_input("How much of this is new loan on top of what you already have?", step=0.01, value=0.0)
-    params['monthly_income'] = st.slider("What is your monthly income before tax?", min_value=0, max_value=1231212)
+    params['total_loan'] = st.slider("What is the value of the loans you already have?", min_value=-5.105648028648286, max_value=2.817191797042532) + params['new_loan']
+    params['new_loan'] = st.slider("How much do you want to loan?", min_value=0, max_value=300000000)
+    params['Monthly_income_before_tax'] = st.slider("What is your monthly income before tax?", min_value=0, max_value=1231212)
 
     params['application_type'] = st.selectbox("What type of loan is this?",
                                     options=["No Refinance", "Partial Refinance", "Full Refinance"])
@@ -18,30 +18,37 @@ def loan_application_form():
                                          "Renovation", "House", "Consume", "Health", "Vacation", "Services"])
 
     params['is_first_application'] = st.checkbox("Is this your first application?")
-    params['is_last_application'] = st.checkbox("Is this your last application?")
+    params['is_last_application'] = 1
+
+    appl_total = st.number_input("If not, how many applications have you made before?", value=0)
 
     params['age'] = st.number_input("How old are you?", value=0)
 
-    params['civil_status'] = st.selectbox("Are you married?", options=["Single", "Married"])
+    params['Civil_status'] = st.selectbox("Are you married?", options=["Yes", "No"])
 
-    params['employment_type'] = st.selectbox("What employment type do you have?",
+    params['Employment_type'] = st.selectbox("What employment type do you have?",
                                    options=["Permanent", "Self-employed", "Student/Trainee", "Pension/Retired",
                                             "Temporary", "Other", "Unemployed", "Part-time", "On Leave Income",
                                             "State Income", "Paid by Hour"])
 
-    params['payment_complaints'] = st.selectbox("How many payment complaints do you have?",
-                                      options=list(range(1, 11)))
+    options = list(range(1, 10)) + ['10+']
 
-    params['num_dependants'] = st.selectbox("How many kids do you have?",
-                                  options=list(range(1, 11)))
+    params['No__payment_complaints'] = st.selectbox("How many payment complaints do you have?",
+                                      options=options)
 
-    desired_repayment_years = st.selectbox("What is your desired repayment time in years for this loan?",
-                                           options=list(range(1, 19)))
+    params['customer_bk_count'] = appl_total + 1
+
+
+    desired_repayment_years = st.selectbox("What is your desired repayment time, in years, for this loan?",
+                                           options=list(range(1, 21)))
 
     params['desired_repayment_months'] = desired_repayment_years * 12
 
-    params['living_arrangement'] = st.selectbox("Do you rent or own your current home?",
-                                      options=["Owned", "Rented"])
+    params['living_arrangement'] = st.selectbox("What is your current living arrangement?",
+                                      options=["Rented apartment", "Condominium", "Parents", "Lodge", "Employee housing", "Villa", "Other" ])
+    params['num_dependants'] = st.selectbox("How many children under 18 do you have?",
+                                  options=options)
+
 
 
     submit_button = st.button("Submit")
