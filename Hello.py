@@ -8,6 +8,8 @@ st.set_page_config(
     layout="wide"
 )
 
+
+
 st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/layout/SamblaGroup_Logo_White_RGB.svg" height="35">', unsafe_allow_html=True)
 
 st.markdown(
@@ -52,7 +54,7 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 
 st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center;'>Welcome to Sambla Loan Assistant! 👋</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Welcome to Sambla Loan Assistant! 🤙</h1>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("<h2 style='text-align: center;'>What would you like to do?</h2>", unsafe_allow_html=True)
 st.markdown("<br><br>", unsafe_allow_html=True)

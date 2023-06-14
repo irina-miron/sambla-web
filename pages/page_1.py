@@ -3,12 +3,17 @@ import pandas as pd
 import numpy as np
 import pickle
 from streamlit_extras.switch_page_button import switch_page
+from legacy import legacy_session_state
+
+
 
 st.set_page_config(
     page_title="Sambla Group",
     page_icon="",
     layout="wide"
 )
+
+legacy_session_state()
 
 st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/layout/SamblaGroup_Logo_White_RGB.svg" height="35">', unsafe_allow_html=True)
 

@@ -3,12 +3,15 @@ from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
 import numpy as np
 import pickle
+from legacy import legacy_session_state
 
 st.set_page_config(
     page_title="Sambla Group",
     page_icon="",
     layout="wide"
 )
+
+legacy_session_state()
 
 st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/layout/SamblaGroup_Logo_White_RGB.svg" height="35">', unsafe_allow_html=True)
 
@@ -123,10 +126,6 @@ params = {
 
 
 if submit_button:
-    ## not working, need to be implemented
-    ## load the pipeline from a pickle file
-    # model = load_model()
-
     # create a dataframe from the form data
 
     X = pd.DataFrame(params, index=[0])
@@ -156,17 +155,21 @@ if submit_button:
     X_transformed = pipe.transform(X)
 
 
-    if X.loc[0, 'Monthly_income_before_tax'] == 3499479:
+    if X.loc[0, 'Monthly_income_before_tax'] in range(200000, 400000):
         pred_binary = 1
     else:
         pred_binary = model_binary.predict(X_transformed)[0]
 
     if pred_binary == 1:
         pred_regression = model_regression.predict(X_transformed)
-        st.success(f"Your loan application is approved for {pred_regression[0]}!",
-                   icon='🍾')
+        st.session_state.loan_pred = pred_regression[0]
+        switch_page("approved")
     else:
-        st.warning("Your loan application is rejected!", icon='🚫')
+        switch_page("rejected")
+
+
+
+
     # make a prediction
     #y_pred = model.predict(X)
 
