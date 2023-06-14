@@ -51,27 +51,32 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 
 st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
 
-st.subheader("Personal Info")
+st.subheader("Loan Info")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-col1, _, col2 = st.columns([ 0.33, 0.17,  0.95])
+# setting the initial value for the application type
+col1, col2 = st.columns([1, 1])
 with col1:
-    # saved as st.session_state.Employment_type
-    st.selectbox("What employment type do you have?",
-            options=["Permanent", "Self-employed", "Student/Trainee", "Pension/Retired",
-                    "Temporary", "Unemployed", "Part-time", "On Leave Income",
-                    "State Income", "Paid by Hour", "Other"],
-            key='Employment_type')
+    # saved as st.session_state.total_loan
+    st.number_input("What is the value of the loans you already have?",
+                    value=60000, key='total_loan')
+    # saved as st.session_state.new_loan
+    st.number_input("How much do you want to loan?",
+                    value=20000, key='new_loan')
 with col2:
-    # saved as st.session_state.Living_arrangement_mode
-    st.radio("What is your current living arrangement?",
-                ["Rented apartment", "Condominium", "Parents",
-                        "Lodge", "Employee housing", "Villa", "Other" ],
-                horizontal=True,
-                key='Living_arrangement_mode')
+    # saved as st.session_state.Monthly_income_before_tax
+    st.number_input("What is your monthly income before tax?",
+                    value=10000, key='Monthly_income_before_tax')
+    # saved as st.session_state.purpose_text
+    st.selectbox("What are you using the loan for?",
+                options=["Investment", "Refinance",
+                        "Studies", "Vehicle", "Renovation",
+                        "House", "Consume", "Health",
+                        "Vacation", "Services", "Other"],
+                            key='purpose_text')
 
-st.markdown("<br>", unsafe_allow_html=True)
+
 st.markdown(
     """
     <style>
@@ -86,5 +91,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-if st.button("Proceed to Application Details"):
-        switch_page("page_3")
+st.markdown("<br>", unsafe_allow_html=True)
+
+if st.button("Next →"):
+        switch_page("page_5")

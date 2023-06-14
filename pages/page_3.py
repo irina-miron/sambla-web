@@ -51,27 +51,39 @@ st.markdown(streamlit_style, unsafe_allow_html=True)
 
 st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
 
-st.subheader("Personal Info")
+st.subheader("Application Info")
 
 st.markdown("<br>", unsafe_allow_html=True)
 
-col1, _, col2 = st.columns([ 0.33, 0.17,  0.95])
+col1, col2 = st.columns([1,1])
+
+# setting the initial value for the application type
+if 'application_type' not in st.session_state:
+    st.session_state.application_type = 'No Refinance'
+
 with col1:
-    # saved as st.session_state.Employment_type
-    st.selectbox("What employment type do you have?",
-            options=["Permanent", "Self-employed", "Student/Trainee", "Pension/Retired",
-                    "Temporary", "Unemployed", "Part-time", "On Leave Income",
-                    "State Income", "Paid by Hour", "Other"],
-            key='Employment_type')
-with col2:
-    # saved as st.session_state.Living_arrangement_mode
-    st.radio("What is your current living arrangement?",
-                ["Rented apartment", "Condominium", "Parents",
-                        "Lodge", "Employee housing", "Villa", "Other" ],
-                horizontal=True,
-                key='Living_arrangement_mode')
 
-st.markdown("<br>", unsafe_allow_html=True)
+    # saved as st.session_state.application_type
+    st.radio('Application Type:',
+            ['No Refinance', "Partial Refinance",
+            "Full Refinance"],
+            key='application_type',
+            horizontal=True)
+
+with col2:
+    st.markdown("<br>", unsafe_allow_html=True)
+    # saved as st.session_state.is_first_application
+    st.checkbox("This is my first application",
+                key='is_first_application', value=True)
+    # even if nott activated, the default value is zero
+    # if activated, can change the number and will be saved as
+    # st.session_state.appl_total
+    st.slider("If not, how many times have you applied before?",
+              value=0,
+              max_value=50,
+              key='appl_total',
+              disabled=st.session_state.is_first_application)
+
 st.markdown(
     """
     <style>
@@ -86,5 +98,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-if st.button("Proceed to Application Details"):
-        switch_page("page_3")
+st.markdown("<br>", unsafe_allow_html=True)
+
+if st.button("Proceed to Loan Details"):
+        switch_page("page_4")
