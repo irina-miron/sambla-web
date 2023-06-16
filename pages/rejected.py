@@ -51,7 +51,7 @@ streamlit_style = """
 			"""
 st.markdown(streamlit_style, unsafe_allow_html=True)
 
-st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
+st.markdown("<br><br><br>", unsafe_allow_html=True)
 
 st.markdown("<h1 style='text-align: center;'>We're sorry... 🙁 </h1>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)

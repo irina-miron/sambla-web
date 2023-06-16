@@ -52,7 +52,9 @@ streamlit_style = """
 			"""
 st.markdown(streamlit_style, unsafe_allow_html=True)
 
-st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.progress(80)
+st.markdown("<br>", unsafe_allow_html=True)
 
 st.subheader("Loan Info")
 
@@ -63,14 +65,14 @@ col1, col2 = st.columns([1, 1])
 with col1:
     # saved as st.session_state.total_loan
     st.number_input("What is the value of the loans you already have?",
-                    value=60000, key='total_loan')
+                    value=0, key='total_loan')
     # saved as st.session_state.new_loan
     st.number_input("How much do you want to loan?",
-                    value=20000, key='new_loan')
+                    value=200000, key='new_loan')
 with col2:
     # saved as st.session_state.Monthly_income_before_tax
     st.number_input("What is your monthly income before tax?",
-                    value=10000, key='Monthly_income_before_tax')
+                    value=300000, key='Monthly_income_before_tax')
     # saved as st.session_state.purpose_text
     st.selectbox("What are you using the loan for?",
                 options=["Investment", "Refinance",

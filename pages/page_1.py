@@ -57,7 +57,9 @@ streamlit_style = """
 			"""
 st.markdown(streamlit_style, unsafe_allow_html=True)
 
-st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.progress(20)
+st.markdown("<br>", unsafe_allow_html=True)
 
 options = list(range(0, 10)) + ['10+']
 
@@ -100,3 +102,5 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 if st.button("Next →"):
         switch_page("page_2")
+
+st.markdown("<br>", unsafe_allow_html=True)

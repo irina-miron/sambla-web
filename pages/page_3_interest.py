@@ -84,14 +84,14 @@ with col_:
 with col2:
 # Display results
     st.subheader("Loan Details")
-    st.markdown("<div><strong>Loan Amount:</strong> €{:,}</div>".format(loan_amount), unsafe_allow_html=True)
+    st.markdown("<div><strong>Loan Amount:</strong>{:,}</div>".format(loan_amount), unsafe_allow_html=True)
     st.markdown("<div><strong>Repayment Years:</strong> {}</div>".format(repayment_years), unsafe_allow_html=True)
     st.markdown("<div><strong>Interest Rate:</strong> {}%</div>".format(interest_rate), unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
 
     st.subheader("Monthly Payment")
-    st.write("€{:.2f}".format(monthly_payment))
+    st.write("{:.2f}".format(monthly_payment))
     st.markdown("<br>", unsafe_allow_html=True)
 
     st.subheader("Total Cost")
-    st.markdown("<div><strong>Total Cost at the end of {} years:</strong> €{:,.2f}</div>".format(repayment_years, total_cost), unsafe_allow_html=True)
+    st.markdown("<div><strong>Total Cost at the end of {} years:</strong> {:,.2f}</div>".format(repayment_years, total_cost), unsafe_allow_html=True)

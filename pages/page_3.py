@@ -51,7 +51,9 @@ streamlit_style = """
 			"""
 st.markdown(streamlit_style, unsafe_allow_html=True)
 
-st.markdown("<br><br><br><br><br><br><br>", unsafe_allow_html=True)
+st.markdown("<br><br>", unsafe_allow_html=True)
+st.progress(60)
+st.markdown("<br>", unsafe_allow_html=True)
 
 st.subheader("Application Info")
 
