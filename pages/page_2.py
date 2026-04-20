@@ -91,4 +91,4 @@ st.markdown(
 )
 
 if st.button("Proceed to Application Details"):
-        st.switch_page("page_3.py")
+        st.switch_page("pages/page_3.py")

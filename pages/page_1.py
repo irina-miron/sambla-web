@@ -100,6 +100,6 @@ st.markdown(
 st.markdown("<br>", unsafe_allow_html=True)
 
 if st.button("Next →"):
-        st.switch_page("page_2.py")
+        st.switch_page("pages/page_2.py")
 
 st.markdown("<br>", unsafe_allow_html=True)

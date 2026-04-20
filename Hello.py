@@ -74,8 +74,8 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     if st.button("I want to know if I am eligible for a loan →"):
-        st.switch_page("loan_landing.py")
+        st.switch_page("pages/loan_landing.py")
 
 with col2:
     if st.button("I want to calculate the total cost of my loan →"):
-        st.switch_page("page_3_interest.py")
+        st.switch_page("pages/page_3_interest.py")

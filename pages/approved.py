@@ -84,8 +84,8 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     if st.button("Get in touch with us →"):
-        st.switch_page("loan_landing.py")
+        st.switch_page("pages/loan_landing.py")
 
 with col2:
     if st.button("Take me to Loan Calculator →"):
-        st.switch_page("page_3_interest.py")
+        st.switch_page("pages/page_3_interest.py")

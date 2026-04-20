@@ -103,4 +103,4 @@ st.markdown(
 st.markdown("<br>", unsafe_allow_html=True)
 
 if st.button("Proceed to Loan Details"):
-        st.switch_page("page_4.py")
+        st.switch_page("pages/page_4.py")

@@ -164,9 +164,9 @@ if submit_button:
     if pred_binary == 1:
         pred_regression = model_regression.predict(X_transformed)
         st.session_state.loan_pred = pred_regression[0]
-        st.switch_page("approved")
+        st.switch_page("pages/approved.py")
     else:
-        st.switch_page("rejected")
+        st.switch_page("pages/rejected.py")
 
 
 

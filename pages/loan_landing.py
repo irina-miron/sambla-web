@@ -73,4 +73,4 @@ st.markdown(
 )
 
 if st.button("Proceed →"):
-        st.switch_page("page_1.py")
+        st.switch_page("pages/page_1.py")
