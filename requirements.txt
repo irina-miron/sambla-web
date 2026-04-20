@@ -3,4 +3,4 @@ lightgbm
 xgboost
 numpy
 pandas
-streamlit-extras=0.3.6
+streamlit-extras==0.3.6
