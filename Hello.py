@@ -8,7 +8,7 @@ st.set_page_config(
 
 
 
-st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/layout/SamblaGroup_Logo_White_RGB.svg" height="35">', unsafe_allow_html=True)
+st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/wp-content/uploads/2024/02/Sambla-group-logotype_white.svg" height="35">', unsafe_allow_html=True)
 
 st.markdown(
         """
