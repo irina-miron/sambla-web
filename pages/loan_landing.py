@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
 
 
 st.set_page_config(
@@ -74,4 +73,4 @@ st.markdown(
 )
 
 if st.button("Proceed →"):
-        switch_page("page_1")
+        st.switch_page("page_1")

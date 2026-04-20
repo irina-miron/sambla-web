@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
 from legacy import legacy_session_state
 
 st.set_page_config(
@@ -92,4 +91,4 @@ st.markdown(
 )
 
 if st.button("Proceed to Application Details"):
-        switch_page("page_3")
+        st.switch_page("page_3")

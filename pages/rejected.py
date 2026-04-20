@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(
     page_title="Sambla Group",
@@ -77,8 +76,8 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     if st.button("Get in touch with us →"):
-        switch_page("loan_landing")
+        st.switch_page("loan_landing")
 
 with col2:
     if st.button("Take me to Loan Calculator →"):
-        switch_page("page_3_interest")
+        st.switch_page("page_3_interest")

@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
 import pandas as pd
 import numpy as np
 import pickle
@@ -165,9 +164,9 @@ if submit_button:
     if pred_binary == 1:
         pred_regression = model_regression.predict(X_transformed)
         st.session_state.loan_pred = pred_regression[0]
-        switch_page("approved")
+        st.switch_page("approved")
     else:
-        switch_page("rejected")
+        st.switch_page("rejected")
 
 
 

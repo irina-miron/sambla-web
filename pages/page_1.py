@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-from streamlit_extras.switch_page_button import switch_page
 from legacy import legacy_session_state
 
 
@@ -101,6 +100,6 @@ st.markdown(
 st.markdown("<br>", unsafe_allow_html=True)
 
 if st.button("Next →"):
-        switch_page("page_2")
+        st.switch_page("page_2")
 
 st.markdown("<br>", unsafe_allow_html=True)

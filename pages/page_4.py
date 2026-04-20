@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_extras.switch_page_button import switch_page
 from legacy import legacy_session_state
 
 st.set_page_config(
@@ -99,4 +98,4 @@ st.markdown(
 st.markdown("<br>", unsafe_allow_html=True)
 
 if st.button("Next →"):
-        switch_page("page_5")
+        st.switch_page("page_5")

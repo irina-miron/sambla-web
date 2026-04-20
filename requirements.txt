@@ -2,4 +2,5 @@ scikit-learn
 lightgbm
 xgboost
 numpy
-streamlit-extras
+pandas
+streamlit-extras=0.3.6
