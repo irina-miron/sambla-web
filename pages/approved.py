@@ -15,7 +15,7 @@ legacy_session_state()
 # st.balloons()
 rain(emoji="💸", font_size = 54, falling_speed = 8, animation_length='infinite')
 
-st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/layout/SamblaGroup_Logo_White_RGB.svg" height="35">', unsafe_allow_html=True)
+st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/wp-content/uploads/2024/02/Sambla-group-logotype_white.svg" height="35">', unsafe_allow_html=True)
 
 st.markdown(
         """
@@ -84,8 +84,8 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     if st.button("Get in touch with us →"):
-        st.switch_page("loan_landing")
+        st.switch_page("loan_landing.py")
 
 with col2:
     if st.button("Take me to Loan Calculator →"):
-        st.switch_page("page_3_interest")
+        st.switch_page("page_3_interest.py")

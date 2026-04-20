@@ -9,7 +9,7 @@ st.set_page_config(
 
 legacy_session_state()
 
-st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/layout/SamblaGroup_Logo_White_RGB.svg" height="35">', unsafe_allow_html=True)
+st.markdown('<div class="align-left"><img src="https://www.samblagroup.com/wp-content/uploads/2024/02/Sambla-group-logotype_white.svg" height="35">', unsafe_allow_html=True)
 
 st.markdown(
         """
@@ -98,4 +98,4 @@ st.markdown(
 st.markdown("<br>", unsafe_allow_html=True)
 
 if st.button("Next →"):
-        st.switch_page("page_5")
+        st.switch_page("page_5.py")
